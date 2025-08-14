@@ -1,5 +1,5 @@
 export interface FormData {
   name: string;
   email: string;
-  salary: string;
+  salary_local: string;
 }

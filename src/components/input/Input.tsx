@@ -14,6 +14,7 @@ export const Input: React.FC<InputProps> = ({
     <input
       type={type}
       className={cn(inputVariants({ variant, inputSize }), className)}
+      value={props.value ?? ""}
       {...props}
     />
   );

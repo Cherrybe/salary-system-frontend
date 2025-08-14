@@ -1,27 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/button/Button";
-import { FormData } from "./UserForm.types";
+import { useForm } from "./useForm.hook";
 
 export const UserForm = (): React.JSX.Element => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    salary: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you can call your backend API to save the data
-  };
+  const { formData, handleChange, handleSubmit, isSubmitting } = useForm();
 
   return (
     <form
@@ -72,10 +57,10 @@ export const UserForm = (): React.JSX.Element => {
         </label>
         <Input
           id="salary"
-          name="salary"
+          name="salary_local"
           type="number"
           placeholder="5000"
-          value={formData.salary}
+          value={formData.salary_local}
           onChange={handleChange}
           variant="default"
           inputSize="default"
@@ -83,7 +68,13 @@ export const UserForm = (): React.JSX.Element => {
       </div>
 
       {/* Submit Button */}
-      <Button type="submit" variant="default" size="lg" className="w-full">
+      <Button
+        type="submit"
+        variant="default"
+        size="lg"
+        className="w-full"
+        disabled={isSubmitting}
+      >
         Submit
       </Button>
     </form>
