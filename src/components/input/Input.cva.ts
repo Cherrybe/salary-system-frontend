@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const inputVariants = cva(
-  "border rounded-md text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed placeholder-gray-400",
+  "w-full border rounded-md text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed placeholder-gray-400",
   {
     variants: {
       variant: {
