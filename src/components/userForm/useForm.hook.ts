@@ -27,8 +27,6 @@ export const useForm = () => {
         email: sanitizeHTML(formData.email),
         salary_local: Math.max(0, Number(formData.salary_local)),
       };
-      
-      console.log("payload: ", payload);
 
       const endurl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -41,7 +39,6 @@ export const useForm = () => {
       });
 
       const data = await res.json();
-      console.log("data", data);
 
       if (res.ok) {
         toast.success(
